@@ -1,16 +1,23 @@
-# React + Vite
+# Experiment 1: SPA vs MPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Learning Outcomes
 
-Currently, two official plugins are available:
+1. Understand Single Page Application (SPA) Architecture
+   - Learn how SPAs load a single HTML page and dynamically update content using JavaScript without full page reloads
+   - Understand client-side routing and how SPAs manage navigation between views
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Understand Multi-Page Application (MPA) Architecture
+   - Learn how MPAs use traditional server-side rendering with multiple HTML pages
+   - Understand how MPAs handle navigation through traditional hyperlinks and server requests
 
-## React Compiler
+3. Compare Performance Characteristics
+   - Evaluate initial load time, subsequent navigation speed, and user experience differences between SPA and MPA
+   - Understand caching strategies, bundle sizes, and how each architecture impacts performance metrics
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Analyze Trade-offs and Use Cases
+   - Identify scenarios where SPA architecture is optimal (e.g., real-time applications, interactive dashboards)
+   - Identify scenarios where MPA architecture is optimal (e.g., content-heavy websites, SEO-critical applications)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+5. Implement Best Practices for Each Architecture
+   - Learn about state management, code splitting, and optimization techniques specific to SPAs
+   - Learn about SEO considerations, server-side rendering, and scalability strategies for MPAs
