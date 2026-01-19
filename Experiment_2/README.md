@@ -1,16 +1,13 @@
-# React + Vite
+# Experiment 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Learning Outcomes
 
-Currently, two official plugins are available:
+1. Component Composition - Understand how to build complex UIs by combining multiple reusable React components (Button, Checkbox, Rating) together.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. state Management - Learn to manage component state effectively using React hooks (useState) to handle user interactions and dynamic UI updates.
 
-## React Compiler
+3. Material-UI Integration - Master the implementation of Material-UI components and styling system to create professional, consistent user interfaces.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Form Handling - Develop skills in handling form inputs and user interactions through controlled components and event handlers.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+5. Single Page Application Architecture - Grasp the fundamentals of building SPAs with client-side routing and component-based navigation patterns.

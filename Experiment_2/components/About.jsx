@@ -11,10 +11,7 @@ export default function About() {
         <h3>Checkboxes:</h3>
         <CheckboxComponent />
       </div>
-      <div>
-        <h3>Ratings:</h3>
-        <RatingComponent />
-      </div>
+      
     </Box>
   );
 }

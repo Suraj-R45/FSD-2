@@ -23,14 +23,7 @@ export default function RatingComponent() {
         <Rating value={4} readOnly />
       </div>
 
-      <div>
-        <h3>Custom Icon Rating</h3>
-        <Rating 
-          icon={<StarIcon fontSize="inherit" />}
-          emptyIcon={<StarIcon fontSize="inherit" />}
-          value={3}
-        />
-      </div>
+      
     </Box>
   );
 }

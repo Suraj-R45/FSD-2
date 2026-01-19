@@ -1,3 +1,10 @@
+import RatingComponent from './Rating';
+
 export default function Contact() {
-  return <h2>Contact Page</h2>;
+  return (
+    <div>
+      <h2>Contact Page</h2>
+      <RatingComponent />
+    </div>
+  );
 }
