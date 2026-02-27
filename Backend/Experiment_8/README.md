@@ -2,7 +2,7 @@
 
 ## Learning Outcomes
 
-By the end of this experiment, students will be able to:
+
 
 1. Explain RESTful principles – describe the architectural style of REST, including statelessness, resource-based modeling, and standard HTTP methods (GET, POST, PUT, DELETE).
 2. Design API endpoints – plan and structure clear, consistent routes and resources using a backend framework, ensuring proper naming conventions and versioning.
