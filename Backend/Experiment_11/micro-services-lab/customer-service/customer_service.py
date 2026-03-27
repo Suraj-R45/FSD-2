@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 import requests
+import os
 
 app = Flask(__name__)
 
@@ -8,6 +9,11 @@ customers = {
     102: {"id": 102, "name": "Customer-2", "email": "customer-2@example.com"}
 }
 
+# Get Order Service URL from environment variable
+ORDER_SERVICE_URL = os.environ.get(
+    "ORDER_SERVICE_URL",
+    "http://localhost:5002"  # fallback for local testing
+)
 
 @app.route("/customers/<int:user_id>/orders")
 def get_account_details(user_id):
@@ -16,10 +22,9 @@ def get_account_details(user_id):
     if not customer:
         return jsonify({"error": "Customer not found"}), 404
 
-    # Call Order Service
     try:
         response = requests.get(
-            f"http://localhost:5002/orders/user/{user_id}",
+            f"{ORDER_SERVICE_URL}/orders/user/{user_id}",
             timeout=3
         )
 
@@ -29,13 +34,11 @@ def get_account_details(user_id):
             orders = []
     except requests.exceptions.RequestException:
         orders = []
-    
-    account_data = {
+
+    return jsonify({
         "customer": customer,
         "orders": orders
-    }
-
-    return jsonify(account_data)
+    })
 
 
 @app.route("/")
@@ -44,4 +47,5 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    import os
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
