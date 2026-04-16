@@ -12,6 +12,14 @@ After completing this experiment, the learner will be able to:
 3. Integrate **Material UI components** such as TextField, Button, Checkbox, and Radio for building forms.
 4. Manage and display **error messages dynamically** based on user input.
 5. Design a **responsive and visually appealing UI** using CSS along with React components.
+6. Write unit tests for React components using Vitest and Testing Library.
+7. Validate form behavior and input validation through simulated user interactions.
+
+# Testing
+Run frontend tests from the terminal:
+
+- `npm vitest`
+- `npx vitest run src/components/form.test.jsx`
 
 # Conclusion
 This experiment helps in understanding real-world form handling in React applications and prepares the learner to build scalable and user-friendly forms using modern UI libraries.
