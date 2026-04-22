@@ -1,55 +1,16 @@
-from flask import Blueprint, request, jsonify
+from flask import Flask
+from routes.student_routes import student_bp
 
-student_bp = Blueprint("student_bp", __name__)
+def create_app():
+    app = Flask(__name__)
 
-students = []
-student_id = 1
+    # register blueprint
+    app.register_blueprint(student_bp)
 
+    return app
 
-@student_bp.route("/students", methods=["POST"])
-def create_student():
-    global student_id
+# IMPORTANT: expose app for pytest and CI
+app = create_app()
 
-    data = request.get_json()
-
-    student = {
-        "id": student_id,
-        "name": data["name"]
-    }
-
-    students.append(student)
-    student_id += 1
-
-    return jsonify(student), 201
-
-
-@student_bp.route("/students", methods=["GET"])
-def get_students():
-    return jsonify(students), 200
-
-
-@student_bp.route("/students/<int:id>", methods=["GET"])
-def get_student(id):
-    for s in students:
-        if s["id"] == id:
-            return jsonify(s), 200
-    return jsonify({"error": "Not found"}), 404
-
-
-@student_bp.route("/students/<int:id>", methods=["PUT"])
-def update_student(id):
-    data = request.get_json()
-
-    for s in students:
-        if s["id"] == id:
-            s["name"] = data["name"]
-            return jsonify(s), 200
-
-    return jsonify({"error": "Not found"}), 404
-
-
-@student_bp.route("/students/<int:id>", methods=["DELETE"])
-def delete_student(id):
-    global students
-    students = [s for s in students if s["id"] != id]
-    return jsonify({"message": "deleted"}), 200
+if __name__ == "__main__":
+    app.run(debug=True)
