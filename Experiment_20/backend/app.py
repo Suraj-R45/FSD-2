@@ -1,20 +1,55 @@
-from flask import Flask
-from routes.student_routes import student_bp
-# from middleware.logger import register_middlewares
+from flask import Blueprint, request, jsonify
 
-def create_app():
-    app = Flask(__name__)
+student_bp = Blueprint("student_bp", __name__)
 
-    # Register Blueprints
-    app.register_blueprint(student_bp)
+students = []
+student_id = 1
 
-    # Register Middlewares
-    # register_middlewares(app)
 
-    return app
+@student_bp.route("/students", methods=["POST"])
+def create_student():
+    global student_id
 
-app = create_app()
+    data = request.get_json()
 
-@app.route("/")
-def home():
-    return {"message": "Backend Server is running"}
+    student = {
+        "id": student_id,
+        "name": data["name"]
+    }
+
+    students.append(student)
+    student_id += 1
+
+    return jsonify(student), 201
+
+
+@student_bp.route("/students", methods=["GET"])
+def get_students():
+    return jsonify(students), 200
+
+
+@student_bp.route("/students/<int:id>", methods=["GET"])
+def get_student(id):
+    for s in students:
+        if s["id"] == id:
+            return jsonify(s), 200
+    return jsonify({"error": "Not found"}), 404
+
+
+@student_bp.route("/students/<int:id>", methods=["PUT"])
+def update_student(id):
+    data = request.get_json()
+
+    for s in students:
+        if s["id"] == id:
+            s["name"] = data["name"]
+            return jsonify(s), 200
+
+    return jsonify({"error": "Not found"}), 404
+
+
+@student_bp.route("/students/<int:id>", methods=["DELETE"])
+def delete_student(id):
+    global students
+    students = [s for s in students if s["id"] != id]
+    return jsonify({"message": "deleted"}), 200
