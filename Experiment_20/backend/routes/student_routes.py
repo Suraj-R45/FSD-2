@@ -10,3 +10,7 @@ def get_students():
         "message": "Student API is working",
         "students": []
     })
+def reset_storage():
+    global students, student_id
+    students = []
+    student_id = 1    
