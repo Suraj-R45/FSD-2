@@ -19,7 +19,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: Experiment_20/backend/Test_app.py
+        working-directory: Experiment_20/backend
 
     steps:
       - name: Checkout code
