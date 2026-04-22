@@ -1,5 +1,5 @@
 import pytest
-from app import app
+from app import create_app
 
 ## Dependencies:
 # pytest: A testing framework for Python.
@@ -15,6 +15,7 @@ from app import app
 
 @pytest.fixture
 def client():
+    app = create_app()
     app.testing = True
     return app.test_client()
 
