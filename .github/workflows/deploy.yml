@@ -50,6 +50,10 @@ jobs:
       working-directory: Experiment_20/frontend
       run: npm install
 
+    - name: Fix Vite Permission
+      working-directory: Experiment_20/frontend
+      run: chmod +x node_modules/.bin/vite
+
     - name: Build Frontend
       working-directory: Experiment_20/frontend
       run: npm run build
